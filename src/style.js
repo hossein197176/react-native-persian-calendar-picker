@@ -13,22 +13,10 @@ const DEFAULT_SELECTED_BACKGROUND_COLOR = '#5ce600';
 const DEFAULT_SELECTED_TEXT_COLOR = '#000000';
 const DEFAULT_TODAY_BACKGROUD_COLOR = '#CCCCCC';
 
-function makeStyles({
-  isRTL,
-  initialScale: scaler,
-  backgroundColor,
-  textColor,
-  todayBackgroundColor,
-}) {
-  const SELECTED_BG_COLOR = backgroundColor
-    ? backgroundColor
-    : DEFAULT_SELECTED_BACKGROUND_COLOR;
-  const SELECTED_TEXT_COLOR = textColor
-    ? textColor
-    : DEFAULT_SELECTED_TEXT_COLOR;
-  const TODAY_BG_COLOR = todayBackgroundColor
-    ? todayBackgroundColor
-    : DEFAULT_TODAY_BACKGROUD_COLOR;
+function makeStyles({isRTL, initialScale: scaler, backgroundColor, textColor, todayBackgroundColor}) {
+  const SELECTED_BG_COLOR = backgroundColor ? backgroundColor : DEFAULT_SELECTED_BACKGROUND_COLOR;
+  const SELECTED_TEXT_COLOR = textColor ? textColor : DEFAULT_SELECTED_TEXT_COLOR;
+  const TODAY_BG_COLOR = todayBackgroundColor ? todayBackgroundColor : DEFAULT_TODAY_BACKGROUD_COLOR;
 
   return {
     calendar: {
@@ -45,7 +33,7 @@ function makeStyles({
     },
 
     dayLabel: {
-      fontSize: 14 * scaler,
+      fontSize: 20 * scaler,
       color: '#000',
       alignSelf: 'center',
     },
@@ -73,14 +61,14 @@ function makeStyles({
 
     dayLabels: {
       width: 50 * scaler,
-      fontSize: 12 * scaler,
+      fontSize: 10 * scaler,
       color: '#000',
       textAlign: 'center',
     },
 
     selectedDay: {
       width: 30 * scaler,
-      height: 30 * scaler,
+      height:30 * scaler,
       borderRadius: 30 * scaler,
       alignSelf: 'center',
       justifyContent: 'center',
@@ -92,7 +80,7 @@ function makeStyles({
 
     selectedToday: {
       width: 30 * scaler,
-      height: 30 * scaler,
+      height:30 * scaler,
       backgroundColor: TODAY_BG_COLOR,
       borderRadius: 30 * scaler,
       alignSelf: 'center',
@@ -139,23 +127,38 @@ function makeStyles({
       fontSize: 16 * scaler,
       color: '#000',
       marginBottom: 10 * scaler,
-      width: 180 * scaler,
+      // width: 180 * scaler,
       textAlign: 'center',
+      alignSelf: 'center'
     },
 
     headerWrapper: {
-      alignItems: 'center',
+      alignItems: 'baseline',
+      justifyContent: 'space-between',
       flexDirection: isRTL ? 'row-reverse' : 'row',
       alignSelf: 'center',
       padding: 5 * scaler,
       paddingBottom: 3 * scaler,
+      width: 350 * scaler,
+      // backgroundColor: 'red',
       backgroundColor: 'rgba(0, 0, 0, 0.0)',
     },
 
     monthSelector: {
-      marginBottom: 10 * scaler,
+      marginLeft: 15 * scaler,
+      marginRight: 15 * scaler,
       fontSize: 14 * scaler,
-      width: 80 * scaler,
+      // width: 20 * scaler,
+    },
+
+    leftSelectors: {
+      // alignSelf: isRTL ? 'flex-start' : 'flex-end',
+      flexDirection:  isRTL ? 'row-reverse' : 'row',
+    },
+
+    rightSelectors: {
+      // alignSelf: isRTL ? 'flex-end' : 'flex-start',
+      flexDirection:  isRTL ? 'row-reverse' : 'row',
     },
 
     prev: {
@@ -186,7 +189,7 @@ function makeStyles({
       color: '#BBBBBB',
       alignSelf: 'center',
       justifyContent: 'center',
-    },
+    }
   };
 }
 

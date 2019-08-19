@@ -11,10 +11,15 @@ const React = require('react');
 const PropTypes = require('prop-types');
 const { Text, TouchableOpacity } = require('react-native');
 
-function Controls({ styles, textStyles, label, onPressControl }) {
+function Controls({ styles, textStyles, label, onPressControl, onLongPress }) {
   return (
-    <TouchableOpacity onPress={() => onPressControl()}>
-      <Text style={[styles, textStyles]}>{label}</Text>
+    <TouchableOpacity
+      onPress={() => onPressControl()}
+      onLongPress = {() => onLongPress && onLongPress()}
+    >
+      <Text style={[styles, textStyles]}>
+        { label }
+      </Text>
     </TouchableOpacity>
   );
 }
